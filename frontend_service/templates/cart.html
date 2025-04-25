@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cart</title>
+    <link href="/static/styles.css" rel="stylesheet">
+</head>
+<body>
+    <h2>Your Cart</h2>
+    <a href="/products">Back to Products</a> | <a href="/logout">Logout</a>
+     <form action="/pay" method="post">
+        <button type="submit">Pay Now</button>
+    </form>
+    <form action="/clear_cart" method="post">
+        <button type="submit" class="clear-cart-btn">Clear Cart</button>
+    </form>
+    
+    {% for product in products %}
+        <p>{{ product.name }} - ${{ product.price }}</p>
+    {% endfor %}
+    <h3>Total: ${{ total }}</h3>
+</body>
+</html>

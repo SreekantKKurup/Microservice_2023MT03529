@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+    <link href="/static/styles.css" rel="stylesheet">
+</head>
+<body>
+    <h2>Products</h2>
+    <a href="/cart">View Cart</a> | <a href="/logout">Logout</a>
+    <form action="/add_to_cart" method="post">
+        {% for product in products %}
+            <div class="product">
+                <p>{{ product.name }} - ${{ product.price }}</p>
+                <button type="submit" name="product_id" value="{{ product.id }}">Add to Cart</button>
+            </div>
+        {% endfor %}
+    </form>
+</body>
+</html>
